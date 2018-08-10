@@ -242,7 +242,7 @@ switch (ENVIRONMENT)
 		exit(3); // EXIT_CONFIG
 	}
 
-	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
+	define('VIEWPATH', FCPATH."template".DIRECTORY_SEPARATOR);
 
 /*
  * --------------------------------------------------------------------
