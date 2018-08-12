@@ -1,29 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*
-|--------------------------------------------------------------------------
-| Base Site URL
-|--------------------------------------------------------------------------
-|
-| URL to your CodeIgniter root. Typically this will be your base URL,
-| WITH a trailing slash:
-|
-|	http://example.com/
-|
-| WARNING: You MUST set this value!
-|
-| If it is not set, then CodeIgniter will try guess the protocol and path
-| your installation, but due to security concerns the hostname will be set
-| to $_SERVER['SERVER_ADDR'] if available, or localhost otherwise.
-| The auto-detection mechanism exists only for convenience during
-| development and MUST NOT be used in production!
-|
-| If you need to allow multiple domains, remember that this file is still
-| a PHP script and you can easily do that on your own.
-|
-*/
-$config['base_url'] = '';
+$server=$_SERVER["SERVER_NAME"];
+$uri=$_SERVER["REQUEST_URI"];
+$url = "http://{$server}/";
+
+if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off'){
+        $url = substr($url, 0, 4) . 's' . substr($url, 4);
+}
+
+$config['base_url'] = $url;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +21,7 @@ $config['base_url'] = '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
