@@ -10,8 +10,11 @@
   <script type="text/javascript" language="javascript" charset="utf-8" src="<?php echo resource_url("apps.js");?>"></script>
   <link rel="stylesheet" type="text/css" media="all" href="<?php echo template_url("apps.css");?>">
   <script type="text/javascript" language="javascript" charset="utf-8" src="<?php echo template_url("apps.js");?>"></script>
+  <link rel="stylesheet" type="text/css" media="all" href="<?php echo resource_url("themify/themify-icons.css");?>">
+  
 </head>
 <body>
+<header>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 	  <a class="navbar-brand" href="#">Smart Exchange</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,6 +71,7 @@
 	    </ul>
 	  </div>
 	</nav>
+</header>
 	<main ruller="main" class="container">
 		<?php print_r($content);?>
 	</main>

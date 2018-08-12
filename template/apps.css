@@ -53,3 +53,12 @@ margin-left: -5px;
 	max-height: 260px;
 	overflow-y: auto;
 }
+.form-control:active, .form-control:focus, .btn:active, .btn:focus, .dropdown-toggle:focus, .dropdown-toggle:active{
+	box-shadow: none;
+	border-color: #17a2b8;
+	outline: 0 none;
+}
+header .dropdown-menu{
+	margin-top:6px;
+	border-radius: 5px;
+}

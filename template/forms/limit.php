@@ -1,5 +1,8 @@
 <div class="row">
 	<div class="col border-right" style="padding-right:15px; ">
+		<h5>Buy <div class="float-right">
+			<i class="ti-wallet"></i> BTC
+		</div></h5>
 		<form>
 	  <div class="form-group row">
 	    <label for="staticEmail" class="col-sm-4 col-form-label col-form-label-sm">Amount</label>
@@ -30,6 +33,9 @@
 	</form>
 	</div>
 	<div class="col" style="padding-left:15px; ">
+		<h5>Sell <div class="float-right">
+			<i class="ti-wallet"></i> BTC
+		</div></h5>
 		<form>
 	  <div class="form-group row">
 	    <label for="staticEmail" class="col-sm-4 col-form-label col-form-label-sm">Amount</label>

@@ -1,37 +1,38 @@
 <div class="row">
 	<div class="col">
-		BTC<br>
-		73000
+		BTC / USD<br>
+		Bitcoin
 	</div>
 
 	<div class="col">
-		BTC<br>
-		73000
-	</div>
-
-
-	<div class="col">
-		BTC<br>
-		73000
+		Last Prices<br>
+		<span id="lastprices"></span>
 	</div>
 
 
 	<div class="col">
-		BTC<br>
+		Last 24h change<br>
 		73000
 	</div>
 
 
 	<div class="col">
-		BTC<br>
+		24h High<br>
+		73000
+	</div>
+
+
+	<div class="col">
+		24h Low<br>
 		73000
 	</div>
 
 	<div class="col">
-		BTC<br>
+		24h Volume<br>
 		73000
 	</div>
 </div>
+<br>
 <div class="row d-flex flex-row">
 	<div class="col-lg-3 col-sm-3">
 		<div class="task border">
