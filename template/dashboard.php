@@ -1,3 +1,4 @@
+
 <div class="row">
 	<div class="col">
 		BTC / USD<br>
@@ -33,17 +34,18 @@
 	</div>
 </div>
 <br>
+<div class="chart border" id="main_chart"></div>
+		<br>
 <div class="row d-flex flex-row">
-	<div class="col-lg-3 col-sm-3">
+	<div class="col-lg-2 col-sm-3">
 		<div class="task border">
 			<div class="sell-task"></div>
 			<div class="price-task text-center bg-light">7500 <span>7500 $</span></div>
 			<div class="buy-task"></div>
 		</div>
 	</div>
-	<div class="col-lg-6 col-sm-6">
-		<div class="chart border"></div>
-		<br>
+	<div class="col-lg-7 col-sm-6">
+		
 		<div class="controller">
 			<nav>
 			  <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -218,6 +220,10 @@
 			</tr>
 		</tbody>
 	</table>
+<script type="text/javascript" src="<?php echo resource_url("charts/static/js/charts.js");?>"></script>
+<style type="text/css">
+	#main_chart div label:first-child, #main_chart div select#type{ display:none; }
+</style>
 <script type="text/javascript">
 	$(document).ready(function(){
 		var history = $("#history").height();

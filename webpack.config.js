@@ -20,11 +20,15 @@ module.exports = {
   output: {
    
     path: path.join(__dirname, '/resource/'),
-    filename: '[name].js'
+    filename: '[name].js',
+    library: "ReStock",
+    libraryTarget: "umd"
   },
   module: {
+   
     rules: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /(node_modules)/, query: { presets: ['env'] } },
+      { test: /\.json$/, loader: "json" },
+      { test: /\.js|jsx$/, loader: 'babel-loader', exclude: /(node_modules)/, query: { presets: ['env'] } },
       {
         test: /\.(scss)$/,
         use: [{
@@ -61,5 +65,18 @@ module.exports = {
         }]
       }
     ]
+  },
+
+  externals: {
+    "react": "React",
+    "react-dom": "ReactDOM",
+    "d3": "d3",
+  },
+  resolve: {
+      
+      alias: {
+        "react-dom": "react/lib/ReactDOM"
+      },
+      extensions: [".js", ".jsx", ".scss", ".md"]
   }
 }
