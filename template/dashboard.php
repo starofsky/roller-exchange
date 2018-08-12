@@ -64,6 +64,10 @@
 			</div>
 		</div>
 
+		<br>
+		<div class="border" style="padding:30px; min-height: 350px;">
+			<h5>Depth</h5>
+		</div>
 		
 	</div>
 	<div class="col-lg-3">
