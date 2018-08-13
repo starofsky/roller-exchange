@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class HomeController extends CI_Controller{
+class BaseController extends CI_Controller{
 	public $layout = "home-layout";
 
 	function __construct()
@@ -63,6 +63,20 @@ class HomeController extends CI_Controller{
         
 	}
 	
+}
+
+class AdminController extends BaseController{
+	function __construct()
+	{
+		parent::__construct();
+	}
+}
+
+class HomeController extends BaseController{
+	function __construct()
+	{
+		parent::__construct();
+	}
 }
 
 class ApiController extends CI_Controller{

@@ -24,15 +24,15 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="<?php echo admin_url("");?>">Home <span class="sr-only">(current)</span></a>
 	      </li>
 	      
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Exchange</a>
+	        <a class="nav-link" href="<?php echo admin_url("exchange");?>">Exchange</a>
 	      </li>
 
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Account</a>
+	        <a class="nav-link" href="<?php echo admin_url("account");?>">Account</a>
 	      </li>
 
 
@@ -41,10 +41,10 @@
 	          Support
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="#">Vote</a>
-	          <a class="dropdown-item" href="#">Con Info</a>
+	          <a class="dropdown-item" href="<?php echo admin_url("vote");?>">Vote</a>
+	          <a class="dropdown-item" href="<?php echo admin_url("coinbase");?>">Con Info</a>
 	          <div class="dropdown-divider"></div>
-	          <a class="dropdown-item" href="#">Add Your Coin</a>
+	          <a class="dropdown-item" href="<?php echo admin_url("vote/create");?>">Add Your Coin</a>
 	        </div>
 	      </li>
 
@@ -62,10 +62,10 @@
 	          Account
 	        </a>
 	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="#">Action</a>
-	          <a class="dropdown-item" href="#">Another action</a>
+	          <a class="dropdown-item" href="<?php echo store_url("account/settings");?>">Settings</a>
+	          <a class="dropdown-item" href="<?php echo store_url("account/changepassword");?>">Change Password</a>
 	          <div class="dropdown-divider"></div>
-	          <a class="dropdown-item" href="#">Something else here</a>
+	          <a class="dropdown-item" href="<?php echo store_url("account/security");?>">Security</a>
 	        </div>
 	      </li>
 	    </ul>
