@@ -3,12 +3,17 @@
 }
 .sell-task, .buy-task{
 	height: 300px;
+	overflow-y: auto;
 }
 .price-task{
 	font-size: 24px;
 }
+.price-task span{
+	font-size: 14px;
+}
 .trade-history{
 	height: 300px;
+	overflow-y: auto;
 }
 
 .controller, .controller .nav-tabs{

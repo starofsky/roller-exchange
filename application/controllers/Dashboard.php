@@ -20,6 +20,16 @@ class Dashboard extends HomeController {
 	 */
 	public function index()
 	{
-		$this->view('dashboard');
+		$data = $this->apis->get("market/symbol");
+		
+		$this->view('dashboard',["data" => $data]);
 	}
+
+	public function exchange($base, $pair)
+	{
+		$data = $this->apis->get("market/symbol");
+		$info = $data->{$base}->{$pair};
+		$this->view('exchange',["data" => $data, "base" => $base, "pair" => $pair, "info" => $info]);
+	}
+
 }

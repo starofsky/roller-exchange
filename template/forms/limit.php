@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col border-right" style="padding-right:15px; ">
 		<h5>Buy <div class="float-right">
-			<i class="ti-wallet"></i> BTC
+			<i class="ti-wallet"></i> <?php echo $pair;?>
 		</div></h5>
 		<form>
 	  <div class="form-group row">
@@ -34,7 +34,7 @@
 	</div>
 	<div class="col" style="padding-left:15px; ">
 		<h5>Sell <div class="float-right">
-			<i class="ti-wallet"></i> BTC
+			<i class="ti-wallet"></i> <?php echo $pair;?>
 		</div></h5>
 		<form>
 	  <div class="form-group row">
