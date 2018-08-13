@@ -45,7 +45,12 @@ class HomeController extends CI_Controller{
 
 
 	public function api_setup(){
-		$config['server'] = "http://127.0.0.1:4444/api/";
+		$server_ip = gethostbyname($_SERVER['SERVER_NAME']);
+		if($server_ip == "127.0.0.1" || $server_ip == "::1"){
+			$config['server'] = "http://127.0.0.1:4444/api/";
+		}else{
+			$config['server'] = "http://api.btcrip.co/api/";
+		}
 		$config['send_cookies'] = "";
 		$config['api_name'] = "";
 		$config['api_key'] = "";
