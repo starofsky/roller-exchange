@@ -3,6 +3,29 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>Smart Exchange</title>
+  	<meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="<?php echo template_url("browserconfig.xml");?>">
+    <meta name="theme-color" content="#ffffff">
+    
+
+
+    <meta name="twitter:url" content="<?php echo store_url();?>">
+    <meta name="twitter:title" content="Blockchain Assets Trading Platform">
+    <meta name="twitter:description" content="The first 300K registered members will be free of trading fees in the first year. With each member invited, you will receive an additional one month free trading fee.">
+    <meta name="twitter:image" content="https://i.imgur.com/jETv0Y1.png">
+    <meta name="twitter:creator" content="aiodex">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@smartexchange">
+
+    <meta property="og:title" content="Blockchain Assets Trading Platform">
+    <meta property="og:image" content="https://i.imgur.com/jETv0Y1.png">
+    <meta property="og:description" content="The first 300K registered members will be free of trading fees in the first year. With each member invited, you will receive an additional one month free trading fee.">
+    <meta property="article:author" content="smartexchange">
+    <meta property="og:url" content="<?php echo store_url();?>">
+    <meta property="og:type" content="article">
+    <meta property="article:publisher" content="https://www.facebook.com/smartexchange">
+    <meta property="og:site_name" content="aiodex.com">
+
   <link rel="shortcut icon" href="<?php echo store_url("favicon.ico");?>">
   <link rel="icon" href="<?php echo store_url("favicon.ico");?>">
 
@@ -15,7 +38,7 @@
 </head>
 <body>
 <header>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-light">
 	  <a class="navbar-brand" href="#">Smart Exchange</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>

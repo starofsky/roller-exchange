@@ -35,10 +35,15 @@
 	        <a class="nav-link" href="<?php echo admin_url("account");?>">Account</a>
 	      </li>
 
-
+	      <li class="nav-item">
+	        <a class="nav-link" href="<?php echo admin_url("ann");?>">Coind</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="<?php echo admin_url("ann/vote");?>">Vote</a>
+	      </li>
 	      <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          Support
+	          Report
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	          <a class="dropdown-item" href="<?php echo admin_url("vote");?>">Vote</a>
@@ -53,9 +58,9 @@
 	    </ul>
 	    
 	    <ul class="navbar-nav">
-	      <li class="nav-item nav-balancer">
-	      	Balancer : 0.5 BTC<br>
-	      	Balancer : 0.5 ETH
+	     
+	      <li class="nav-item" style="padding-right: 10px;">
+	      	<a href="<?php echo admin_url("settings");?>" class="btn btn-outline-info">Settings</a>
 	      </li>
 	      <li class="nav-item dropdown">
 	        <a class="btn btn-outline-info btn-sm nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -72,7 +77,7 @@
 	  </div>
 	</nav>
 </header>
-	<main ruller="main" class="container">
+	<main ruller="main" class="container-fluid">
 		<?php print_r($content);?>
 	</main>
 	<footer>

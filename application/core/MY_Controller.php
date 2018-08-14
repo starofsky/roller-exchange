@@ -8,7 +8,7 @@ class BaseController extends CI_Controller{
 	{
 		parent::__construct();
 		$this->load->library(['session','email','user_agent','apis','curl']);
-		$this->load->helper(['functions','url']);
+		$this->load->helper(['functions','url','form']);
 		$this->api_setup();
 	}
 	
@@ -41,6 +41,15 @@ class BaseController extends CI_Controller{
 
 	public function get_flash(){
 
+	}
+
+	public function go($type="", $url=""){
+		if($type == "admin"){
+			redirect(admin_url($url));
+		}else{
+			redirect(store_url($url));
+		}
+		exit();
 	}
 
 

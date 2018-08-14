@@ -34,7 +34,7 @@ class Dashboard extends HomeController {
 
 
 	public function exchange_main(){
-		$data = $this->apis->get("market/symbol");
-		$this->view("exchange_main");
+		$data = $this->db->get("symbol")->result();
+		$this->view("exchange_main",["data" => $data]);
 	}
 }

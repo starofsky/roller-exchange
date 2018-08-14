@@ -1,0 +1,9 @@
+.title{
+	margin-bottom: 30px;
+	margin-top:20px; 
+	position: relative;
+}
+.title:after{
+	clear: both;
+	position: absolute;
+}

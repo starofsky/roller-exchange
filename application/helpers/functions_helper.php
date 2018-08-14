@@ -12,8 +12,12 @@ function admin_url($path=""){
 
 function template_url($path=""){
 	
+	if(defined("ADMIN")){
+		return store_url("template/admin/".$path);
+	}else{
+		return store_url("template/default/".$path);
+	}
 	
-	return store_url("template/".$path);
 
 }
 
