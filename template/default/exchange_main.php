@@ -10,28 +10,12 @@
                         <h2 class="mt-30">
                             Exchange Launch at:
                         </h2> 
-                        <div class="timer-wapper ">
-                        	<ul class="d-flex">
-                        		<li class="shadow-text w-25">Days</li>
-                        		
-                        		<li class="shadow-text w-25">Hours</li>
-                        		<li class="shadow-text w-25">Minutes</li>
-                        		<li class="shadow-text w-25">Seconds</li>
-                        	</ul>
-                        	<ul class="d-flex timeline">
-                        		<li class="shadow-sm p-3 mb-5 bg-white rounded shadown">6</li>
-                        		<li class="shadow-sm p-3 mb-5 bg-white rounded shadown">0</li>
-                        		<li class="node">:</li>
-                        		<li class="shadow-sm p-3 mb-5 bg-white rounded shadown">2</li>
-                        		<li class="shadow-sm p-3 mb-5 bg-white rounded shadown">3</li>
-                        		<li class="node">:</li>
-                        		<li class="shadow-sm p-3 mb-5 bg-white rounded shadown">4</li>
-                        		<li class="shadow-sm p-3 mb-5 bg-white rounded shadown">8</li>
-                        		<li class="node">:</li>
-                        		<li class="shadow-sm p-3 mb-5 bg-white rounded shadown">5</li>
-                        		<li class="shadow-sm p-3 mb-5 bg-white rounded shadown">6</li>
-                        	</ul>
+                        <div id="timewapper">
+	                        <div class="timer-wapper">
+	                        	
+	                        </div>
                         </div>
+                        
             </div>
 	</div>
 	<div class="slider-bg"></div>

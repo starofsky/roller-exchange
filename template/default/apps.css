@@ -126,32 +126,12 @@ header .dropdown-menu{
 .mt-30 {
     margin-top: 30px !important;
 }
-.timer-wapper{
-	width: 70%;
-	margin: auto;
-	font-size: 6rem;
-	line-height: 6rem;
-}
-.timer-wapper ul .w-25{
-	line-height: 30px !important;
-	font-size: 14px !important;
-	color: #FFF;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.timer-wapper ul{
-	list-style: none;
-	margin: 0;
-	padding: 0;
-
-}
-.timer-wapper ul li.shadown{
-	margin-right: 5px;
-	margin-left: 5px;
-}
-.timer-wapper ul li.node{
-	color: #f2f2f2;
+#timewapper{
+	
+	width: 60% !important;
+	margin: auto !important;
+	margin-top:50px !important; 
+	
 }
 
 .block-title, h2.block-title {
