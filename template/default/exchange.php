@@ -263,6 +263,7 @@
 		        data: {text : inbox.val()}
 		    });
 		    inbox.val('');
+		    inbox.focus();
 		    return false;
 		});
 		
