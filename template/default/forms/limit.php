@@ -84,7 +84,7 @@
 		               }
 		           }	
 	         });
-		    getDataJson();
+		    //getDataJson();
 		    return false;
 		});
 		$("form#formBuyLimit").submit(function(){
@@ -102,7 +102,7 @@
 		               }
 		           }	
 	         });
-		    getDataJson();
+		    //getDataJson();
 		    return false;
 		});
 

@@ -138,9 +138,9 @@
 			</div>
 
 			<div class="input-group mb-3 input-group-sm" style="margin-top: 5px;">
-			  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+			  <input type="text" class="form-control" placeholder="Enter Chat" aria-label="Recipient's username" aria-describedby="button-addon2">
 			  <div class="input-group-append">
-			    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
+			    <button class="btn btn-outline-secondary" type="button" onClick="chat($(this).parent().parent().find('input'));" id="button-addon2">Send</button>
 			  </div>
 			</div>
 		</div>
@@ -230,11 +230,40 @@
 		
 		$(".sell-task").animate({scrollTop: $(".sell-task").get(0).scrollHeight}, 500);
 		getDataJson();
-		setInterval(function(){
-			getDataJson()
-		}, 5000);
+		var socket = io.connect('//api.btcrip.co:8080');
+
+		socket.on('connect', function () {
+		    console.log('connected');
+
+		    socket.on('broadcast', function (data) {
+		        console.log(data);
+		        //socket.emit("broadcast", data);
+		        //alert(data.text);
+		        if(data.type == "notification"){
+		        	getDataJson();
+		        }
+		        if(data.type == "chat"){
+		        	$("#chatbox ul").append('<li>'+data.text+'</li>');
+		        	$("#chatbox").animate({scrollTop: $("#chatbox").get(0).scrollHeight}, 100);
+		        }
+		        
+		    });
+
+		    socket.on('disconnect', function () {
+		        console.log('disconnected');
+		    });
+		});
 		
 	});
+	var chat = function(inbox){
+		$.ajax({
+	        url: "/api/chat",
+	        type: "post",
+	        data: {text : inbox.val()}
+	    });
+	    inbox.val('');
+
+	};
 	var getDataJson = function(){
 			$.getJSON("/api/trade/<?php echo $base;?>/<?php echo $pair;?>", function(data){
 				$.each(data, function(keys, value){

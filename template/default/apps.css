@@ -151,3 +151,14 @@ header .dropdown-menu{
 .red {
 	color:#dd3a88;
 }
+#chatbox ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+#chatbox ul li{
+	border-bottom: 1px solid #ddd;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+}

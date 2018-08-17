@@ -29,5 +29,11 @@ class Api extends HomeController {
 		$this->json = $this->apis->post("account/sell",["trade" => "{$b}/{$s}","amount" => $this->input->post("amount"),"prices" => $this->input->post("prices")]);
 		$this->toJson();
 	}
+
+	public function chat(){
+		$text = $this->input->post("text");
+		$this->json = $this->apis->post("public/chat",["text" => $text]);
+		$this->toJson();
+	}
 }
 ?>

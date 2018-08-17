@@ -13,20 +13,6 @@ jQuery(document).ready(function(){
 					countdown: true
 				});
 
-	var socket = io.connect('//api.btcrip.co:8080');
-
-	socket.on('connect', function () {
-	    console.log('connected');
-
-	    socket.on('broadcast', function (data) {
-	        console.log(data);
-	        //socket.emit("broadcast", data);
-	        //alert(data.text);
-	    });
-
-	    socket.on('disconnect', function () {
-	        console.log('disconnected');
-	    });
-	});
+	
 	
 });
