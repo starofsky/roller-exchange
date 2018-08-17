@@ -227,6 +227,8 @@
 		//$("#coinValible").height($("#main_chart").height());
 		//$(".task").height(parenHeight);
 		$(".sell-task, .buy-task").height((parenHeight - priceTask - 2)/2);
+		
+		$(".sell-task").animate({scrollTop: $(".sell-task").get(0).scrollHeight}, 500);
 		getDataJson();
 		setInterval(function(){
 			getDataJson()
@@ -236,10 +238,20 @@
 	var getDataJson = function(){
 			$.getJSON("/api/trade/<?php echo $base;?>/<?php echo $pair;?>", function(data){
 				$.each(data, function(keys, value){
+					sum = 0;
 					$.each(value, function(index, vdata){
-						$("."+keys+"-task #sdata-"+index+" td:eq(0)").text(vdata.prices);
-						$("."+keys+"-task #sdata-"+index+" td:eq(1)").text(vdata.amount);
-						$("."+keys+"-task #sdata-"+index+" td:eq(2)").text(Number.parseFloat(vdata.amount * vdata.prices).toFixed(8));
+						if(keys == "sell"){
+							sum = Number.parseFloat(vdata.amount * vdata.prices) + Number.parseFloat(sum);
+							$("."+keys+"-task #sdata-"+(20-index)+" td:eq(0)").text(vdata.prices);
+							$("."+keys+"-task #sdata-"+(20-index)+" td:eq(1)").text(vdata.amount);
+							$("."+keys+"-task #sdata-"+(20-index)+" td:eq(2)").text(sum.toFixed(8));
+						}else{
+							sum = Number.parseFloat(vdata.amount * vdata.prices) + Number.parseFloat(sum);
+							$("."+keys+"-task #sdata-"+index+" td:eq(0)").text(vdata.prices);
+							$("."+keys+"-task #sdata-"+index+" td:eq(1)").text(vdata.amount);
+							$("."+keys+"-task #sdata-"+index+" td:eq(2)").text(sum.toFixed(8));
+						}
+						
 					});
 				});
 			});
