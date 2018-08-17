@@ -1,6 +1,6 @@
 <table class="table table-sm">
 	<tbody>
-		<?php for($i=0; $i<=20; $i++){ ?>
+		<?php for($i=0; $i<=19; $i++){ ?>
 		<tr id="sdata-<?php echo $i;?>">
 			<td>-</td>
 			<td>-</td>
