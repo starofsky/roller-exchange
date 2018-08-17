@@ -230,7 +230,7 @@
 		getDataJson();
 		setInterval(function(){
 			getDataJson()
-		}, 2000);
+		}, 5000);
 		
 	});
 	var getDataJson = function(){
