@@ -3,10 +3,15 @@
 	<thead>
 		
 		
-		<th colspan="3">Symbol</th>
+		<th colspan="2">Symbol</th>
 		<th>Wallet</th>
-		<th>Options</th>
-		<th>Status</th>
+		<th>Deposit</th>
+		<th>Deposit</th>
+		<th>Withdraw</th>
+		<th>Main Account</th>
+		<th>Transfer</th>
+		<th>Trading Account</th>
+		<th>On Orders</th>
 
 	</thead>
 	<tbody>
@@ -14,7 +19,7 @@
 			
 		<tr>
 			
-			<th><?php echo $value->base;?></th>
+			
 			<td><?php echo $value->name;?></td>
 			<td><?php echo $value->symbol;?></td>
 			<td>Last Prices</td>

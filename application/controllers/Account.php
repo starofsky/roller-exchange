@@ -3,10 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Account extends AccountController {
 	public function index(){
+		$this->db->group_by("symbol");
 		$data = $this->db->get("symbol")->result();
 		
 		$apis = $this->apis->post("account/wallet");
-		print_r($apis);
 		return $this->view("account/myaccount",["data" => $data]);
 	}
 

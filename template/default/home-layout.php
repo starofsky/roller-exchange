@@ -97,7 +97,7 @@
 	  </div>
 	</nav>
 </header>
-	<main ruller="main" class="container">
+	<main ruller="main" class="container-fluid">
 		<?php print_r($content);?>
 	</main>
 	<footer>

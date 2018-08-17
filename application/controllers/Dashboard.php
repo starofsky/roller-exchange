@@ -27,8 +27,14 @@ class Dashboard extends HomeController {
 
 	public function exchange($base, $pair)
 	{
-		$data = $this->apis->get("market/symbol");
-		$info = $data->{$base}->{$pair};
+		$data = [];
+		$this->db->group_by("base");
+		$symbol = $this->db->get("symbol")->result();
+		
+		foreach ($symbol as $key => $value) {
+			$data[$value->base] = $this->db->get_where("symbol",["base" => $value->base])->result();
+		}
+		$info = $this->db->get_where("symbol",["base" => $base, "symbol" => $pair])->row();
 		$this->view('exchange',["data" => $data, "base" => $base, "pair" => $pair, "info" => $info]);
 	}
 

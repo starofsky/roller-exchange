@@ -12,11 +12,11 @@
 	font-size: 14px;
 }
 .history-task{
-	height: 300px;
+	height: 328px;
 	overflow-y: auto;
 }
 #chatbox{
-	height: 300px;
+	height: 285px;
 	overflow-y: auto;
 }
 
@@ -140,4 +140,7 @@ header .dropdown-menu{
 
 .block-title, h2.block-title {
     padding-bottom: 40px;
+}
+.listcoins{
+	height: 420px;
 }

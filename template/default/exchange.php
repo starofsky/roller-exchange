@@ -37,7 +37,7 @@
 <div class="row d-flex flex-row">
 	<div class="col-lg-9 col-sm-3">
 
-		<div class="chart border" id="main_chart"></div>
+		<div class="chart border" id="main_chart">Loadding chart..</div>
 	</div>
 	<div class="col-lg-3 col-sm-3">
 		<div id="coinValible" class="border">
@@ -254,6 +254,7 @@
 						
 					});
 				});
+				$("#lastprices").html(data.history[0].prices);
 			});
 		}
 </script>
