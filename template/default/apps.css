@@ -144,3 +144,10 @@ header .dropdown-menu{
 .listcoins{
 	height: 420px;
 }
+
+.green {
+	color:#7ea335;
+}
+.red {
+	color:#dd3a88;
+}

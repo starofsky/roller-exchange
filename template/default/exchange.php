@@ -251,6 +251,13 @@
 							$("."+keys+"-task #sdata-"+index+" td:eq(1)").text(vdata.amount);
 							$("."+keys+"-task #sdata-"+index+" td:eq(2)").text(sum.toFixed(8));
 						}
+						if(keys == "history"){
+							if(vdata.trade_type == "buy"){
+								$(".history-task #sdata-"+index).addClass("green");
+							}else{
+								$(".history-task #sdata-"+index).addClass("red");
+							}
+						}
 						
 					});
 				});
