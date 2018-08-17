@@ -255,6 +255,20 @@
 					});
 				});
 				$("#lastprices").html(data.history[0].prices);
+				$(".sell-task tr").on("click", function(){
+					var prices = $("td:eq(0)",this).text();
+					var amount = $("td:eq(1)",this).text();
+					$("#formBuyLimit [name='prices']").val(prices);
+					$("#formBuyLimit [name='amount']").val(amount);
+				});
+
+				$(".buy-task tr").on("click", function(){
+					var prices = $("td:eq(0)",this).text();
+					var amount = $("td:eq(1)",this).text();
+					$("#formSellLimit [name='prices']").val(prices);
+					$("#formSellLimit [name='amount']").val(amount);
+				});
+
 			});
 		}
 </script>
