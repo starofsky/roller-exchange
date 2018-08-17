@@ -36,7 +36,7 @@
   <link rel="stylesheet" type="text/css" media="all" href="<?php echo resource_url("themify/themify-icons.css");?>">
   <script type="text/javascript" language="javascript" charset="utf-8" src="<?php echo resource_url("flipclock.min.js");?>"></script>
   <link rel="stylesheet" type="text/css" media="all" href="<?php echo resource_url("flipclock.css");?>">
-  
+  <script src='//cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.min.js'></script>
 </head>
 <body>
 <header>
