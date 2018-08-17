@@ -40,6 +40,7 @@
 </head>
 <body>
 <header>
+
 	<nav class="navbar navbar-expand-lg navbar-light">
 	  <a class="navbar-brand" href="#">Smart Exchange</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,6 +79,7 @@
 	    </ul>
 	    
 	    <ul class="navbar-nav">
+	      <?php if($is_login){?>
 	      <li class="nav-item nav-balancer">
 	      	Balancer : 0.5 BTC<br>
 	      	Balancer : 0.5 ETH
@@ -93,6 +95,11 @@
 	          <a class="dropdown-item" href="<?php echo store_url("account/security");?>">Security</a>
 	        </div>
 	      </li>
+	      <?php }else{?>
+	      	<li class="nav-item nav-balancer">
+	      		<a class="btn btn-outline-info btn-sm nav-link" href="#">Register</a>
+	      </li>
+	      <?php } ?>
 	    </ul>
 	  </div>
 	</nav>

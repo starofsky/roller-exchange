@@ -13,24 +13,24 @@
 
 	<div class="col">
 		Last 24h change<br>
-		73000
+		<span id="change24"></span>
 	</div>
 
 
 	<div class="col">
 		24h High<br>
-		73000
+		<span id="high24"></span>
 	</div>
 
 
 	<div class="col">
 		24h Low<br>
-		73000
+		<span id="low24"></span>
 	</div>
 
 	<div class="col">
 		24h Volume<br>
-		73000
+		<span id="volume24"></span>
 	</div>
 </div>
 <br>
@@ -290,7 +290,12 @@
 						
 					});
 				});
-				$("#lastprices").html(data.history[0].prices);
+				$("#lastprices").html(data.sumary.lastprice);
+				$("#change24").html(data.sumary.change);
+				$("#high24").html(data.sumary.high);
+				$("#low24").html(data.sumary.low);
+				$("#volume24").html(data.sumary.volume);
+
 				$(".sell-task tr").on("click", function(){
 					var prices = $("td:eq(0)",this).text();
 					var amount = $("td:eq(1)",this).text();

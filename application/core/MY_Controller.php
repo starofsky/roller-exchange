@@ -25,6 +25,17 @@ class BaseController extends CI_Controller{
 	}
 
 	/*
+	Login Member
+	*/
+
+	public function is_login(){
+		if($this->session->userdata("is_login")){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	/*
 	Return View
 	*/
 	public function view($layout, $data=[]){
@@ -33,14 +44,48 @@ class BaseController extends CI_Controller{
 		if($this->getLayout()){
 
 			$data = $this->load->view($layout, $data, true);
-			return $this->load->view($this->layout,["content" => $data, "flash" => $this->get_flash(), "header" => ""]);
+			return $this->load->view($this->layout,["content" => $data, "flash" => $this->get_flash(), "header" => "","is_login" => $this->is_login()]);
 		}else{
 			return $this->load->view($layout, $data);
 		}
 	}
 
-	public function get_flash(){
+	/*
+	Note Flash Member
+	*/
 
+	public function get_flash(){
+		$html = "";
+		if($this->session->flashdata("error")){
+			$html = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			  <strong>'.lang("error").'!</strong> '.$this->session->flashdata("error").'.
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
+			</div>';
+		}
+
+		if($this->session->flashdata("success")){
+			$html = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+			  <strong>'.lang("success").'!</strong> '.$this->session->flashdata("success").'.
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
+			</div>';
+		}
+
+
+		if($this->session->flashdata("warning")){
+			$html = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			  <strong>'.lang("warning").'!</strong> '.$this->session->flashdata("warning").'.
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
+			</div>';
+		}
+
+
+		return $html;
 	}
 
 	public function go($type="", $url=""){
