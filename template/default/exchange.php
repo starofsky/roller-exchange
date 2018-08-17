@@ -281,7 +281,7 @@
 							$("."+keys+"-task #sdata-"+index+" td:eq(2)").text(sum.toFixed(8));
 						}
 						if(keys == "history"){
-							if(vdata.trade_type == "buy"){
+							if(trim(vdata.trade_type) == "buy"){
 								$(".history-task #sdata-"+index).removeClass("red");
 								$(".history-task #sdata-"+index).addClass("green");
 							}else{
