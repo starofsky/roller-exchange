@@ -136,13 +136,14 @@
 			<div class="trade-history border align-items-end" id="chatbox">
 				<?php include __DIR__."/forms/troll.php";?>
 			</div>
-
+			<form id="chatForm">
 			<div class="input-group mb-3 input-group-sm" style="margin-top: 5px;">
 			  <input type="text" class="form-control" placeholder="Enter Chat" aria-label="Recipient's username" aria-describedby="button-addon2">
 			  <div class="input-group-append">
-			    <button class="btn btn-outline-secondary" type="button" onClick="chat($(this).parent().parent().find('input'));" id="button-addon2">Send</button>
+			    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Send</button>
 			  </div>
 			</div>
+			</form>
 		</div>
 		<!--// Trade History -->
 		<div id="history">
@@ -253,17 +254,19 @@
 		        console.log('disconnected');
 		    });
 		});
+
+		$("#chatForm").submit(function(){
+			var inbox = $("input",this);
+			$.ajax({
+		        url: "/api/chat",
+		        type: "post",
+		        data: {text : inbox.val()}
+		    });
+		    inbox.val('');
+		});
 		
 	});
-	var chat = function(inbox){
-		$.ajax({
-	        url: "/api/chat",
-	        type: "post",
-	        data: {text : inbox.val()}
-	    });
-	    inbox.val('');
-
-	};
+	
 	var getDataJson = function(){
 			$.getJSON("/api/trade/<?php echo $base;?>/<?php echo $pair;?>", function(data){
 				$.each(data, function(keys, value){
