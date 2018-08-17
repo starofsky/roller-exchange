@@ -70,11 +70,11 @@
 				<div class="listcoins">
 					<table class="table">
 						<?php foreach ($value as $key_alt => $value_alt) { ?>
-							<tr>
+							<tr id="coind_<?php echo $key.$value_alt->symbol;?>">
 								<td width="2%"><i class="ti-star"></i></td>
 								<td><a href="<?php echo store_url("exchange/".$key."/".$value_alt->symbol);?>" title="<?php echo $value_alt->name;?>"><?php echo $value_alt->symbol;?></a></td>
-								<td>2900</td>
-								<td class="text-right">3000$</td>
+								<td>0</td>
+								<td class="text-right">0</td>
 							</tr>
 						<?php } ?>
 						
@@ -296,6 +296,9 @@
 				$("#low24").html(data.sumary.low);
 				$("#volume24").html(data.sumary.volume);
 				$("#volume24btc").html(data.sumary.volumebtc);
+				
+				$("#coind_<?php echo $base;?><?php echo $pair;?> td:eq(2)").html(data.sumary.lastprice);
+				$("#coind_<?php echo $base;?><?php echo $pair;?> td:eq(3)").html(data.sumary.volume);
 
 				$(".sell-task tr").on("click", function(){
 					var prices = $("td:eq(0)",this).text();
