@@ -54,12 +54,8 @@ class BaseController extends CI_Controller{
 
 
 	public function api_setup(){
-		$server_ip = gethostbyname($_SERVER['SERVER_NAME']);
-		if($server_ip == "127.0.0.1" || $server_ip == "::1"){
-			$config['server'] = "http://127.0.0.1:4444/api/";
-		}else{
-			$config['server'] = "http://api.btcrip.co/api/";
-		}
+		
+		$config['server'] = "https://api.btcrip.co/api/";
 		$config['send_cookies'] = "";
 		$config['api_name'] = "";
 		$config['api_key'] = "";
@@ -82,6 +78,13 @@ class AdminController extends BaseController{
 }
 
 class HomeController extends BaseController{
+	function __construct()
+	{
+		parent::__construct();
+	}
+}
+
+class AccountController extends BaseController{
 	function __construct()
 	{
 		parent::__construct();

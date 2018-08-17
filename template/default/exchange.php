@@ -133,7 +133,7 @@
 	<div class="col-lg-3">
 		<div id="trol">
 			
-			<div class="trade-history border align-items-end">
+			<div class="trade-history border align-items-end" id="chatbox">
 				<?php include __DIR__."/forms/troll.php";?>
 			</div>
 
@@ -147,7 +147,7 @@
 		<!--// Trade History -->
 		<div id="history">
 			<h5>Trade History</h5>
-			<div class="trade-history border align-items-end">
+			<div class="history-task border align-items-end">
 				<?php include __DIR__."/forms/history.php";?>
 			</div>
 		</div>
@@ -227,5 +227,21 @@
 		//$("#coinValible").height($("#main_chart").height());
 		//$(".task").height(parenHeight);
 		$(".sell-task, .buy-task").height((parenHeight - priceTask - 2)/2);
+		getDataJson();
+		setInterval(function(){
+			getDataJson()
+		}, 2000);
+		
 	});
+	var getDataJson = function(){
+			$.getJSON("/api/trade/<?php echo $base;?>/<?php echo $pair;?>", function(data){
+				$.each(data, function(keys, value){
+					$.each(value, function(index, vdata){
+						$("."+keys+"-task #sdata-"+index+" td:eq(0)").text(vdata.prices);
+						$("."+keys+"-task #sdata-"+index+" td:eq(1)").text(vdata.amount);
+						$("."+keys+"-task #sdata-"+index+" td:eq(2)").text(Number.parseFloat(vdata.amount * vdata.prices).toFixed(8));
+					});
+				});
+			});
+		}
 </script>

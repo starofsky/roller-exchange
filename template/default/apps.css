@@ -11,7 +11,11 @@
 .price-task span{
 	font-size: 14px;
 }
-.trade-history{
+.history-task{
+	height: 300px;
+	overflow-y: auto;
+}
+#chatbox{
 	height: 300px;
 	overflow-y: auto;
 }
