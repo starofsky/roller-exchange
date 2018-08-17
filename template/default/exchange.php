@@ -282,8 +282,10 @@
 						}
 						if(keys == "history"){
 							if(vdata.trade_type == "buy"){
+								$(".history-task #sdata-"+index).removeClass("red");
 								$(".history-task #sdata-"+index).addClass("green");
 							}else{
+								$(".history-task #sdata-"+index).removeClass("green");
 								$(".history-task #sdata-"+index).addClass("red");
 							}
 						}
