@@ -7,7 +7,7 @@
 	  <div class="form-group row">
 	    <label for="staticEmail" class="col-sm-4 col-form-label col-form-label-sm">Amount</label>
 	    <div class="col-sm-8">
-	      <input type="text" class="form-control form-control-sm" name="amount" value="Amount">
+	      <input type="text" class="form-control form-control-sm" name="amount" value="0.0">
 	    </div>
 	  </div>
 	  <div class="form-group row">
@@ -40,7 +40,7 @@
 	  <div class="form-group row">
 	    <label for="staticEmail" class="col-sm-4 col-form-label col-form-label-sm">Amount</label>
 	    <div class="col-sm-8">
-	      <input type="text" class="form-control form-control-sm" name="amount" id="staticEmail" value="Amount">
+	      <input type="text" class="form-control form-control-sm" name="amount" id="staticEmail" value="0.0">
 	    </div>
 	  </div>
 	  <div class="form-group row">
