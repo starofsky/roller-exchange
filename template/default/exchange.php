@@ -255,14 +255,15 @@
 		    });
 		});
 
-		$("#chatForm").submit(function(){
-			var inbox = $("input",this);
+		$("form#chatForm").submit(function(){
+			var inbox = $(this).find("input[type=text]");
 			$.ajax({
 		        url: "/api/chat",
 		        type: "post",
 		        data: {text : inbox.val()}
 		    });
 		    inbox.val('');
+		    return false;
 		});
 		
 	});
