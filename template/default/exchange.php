@@ -30,7 +30,7 @@
 
 	<div class="col">
 		24h Volume<br>
-		<span id="volume24"></span>
+		<span id="volume24"></span>/<span id="volume24btc"></span>
 	</div>
 </div>
 <br>
@@ -295,6 +295,7 @@
 				$("#high24").html(data.sumary.high);
 				$("#low24").html(data.sumary.low);
 				$("#volume24").html(data.sumary.volume);
+				$("#volume24btc").html(data.sumary.volumebtc);
 
 				$(".sell-task tr").on("click", function(){
 					var prices = $("td:eq(0)",this).text();
