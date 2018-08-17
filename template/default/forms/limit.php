@@ -7,25 +7,25 @@
 	  <div class="form-group row">
 	    <label for="staticEmail" class="col-sm-4 col-form-label col-form-label-sm">Amount</label>
 	    <div class="col-sm-8">
-	      <input type="number" class="form-control form-control-sm" name="amount" value="Amount">
+	      <input type="text" class="form-control form-control-sm" name="amount" value="Amount">
 	    </div>
 	  </div>
 	  <div class="form-group row">
 	    <label for="inputPassword" class="col-sm-4 col-form-label col-form-label-sm">Prices</label>
 	    <div class="col-sm-8">
-	      <input type="number" class="form-control form-control-sm" name="prices" placeholder="Prices">
+	      <input type="text" class="form-control form-control-sm" name="prices" placeholder="Prices">
 	    </div>
 	  </div>
 
 	  <div class="form-group">
 	   
-	    <input type="range" class="form-control-range" id="formControlRange">
+	    <input type="range" min="1" max="100" value="50" class="form-control-range" id="formControlRange">
 	  </div>
 
 	  <div class="form-group row">
 	    <label for="inputPassword" class="col-sm-4 col-form-label col-form-label-sm">Total</label>
 	    <div class="col-sm-8">
-	      <input type="number" readonly="" class="form-control form-control-sm" placeholder="0.00">
+	      <input type="text" readonly="" name="total" class="form-control form-control-sm" placeholder="0.00">
 	    </div>
 	  </div>
 
@@ -40,13 +40,13 @@
 	  <div class="form-group row">
 	    <label for="staticEmail" class="col-sm-4 col-form-label col-form-label-sm">Amount</label>
 	    <div class="col-sm-8">
-	      <input type="number" class="form-control form-control-sm" name="amount" id="staticEmail" value="Amount">
+	      <input type="text" class="form-control form-control-sm" name="amount" id="staticEmail" value="Amount">
 	    </div>
 	  </div>
 	  <div class="form-group row">
 	    <label for="inputPassword" class="col-sm-4 col-form-label col-form-label-sm">Prices</label>
 	    <div class="col-sm-8">
-	      <input type="number" class="form-control form-control-sm" name="prices" placeholder="Prices">
+	      <input type="text" class="form-control form-control-sm" name="prices" placeholder="Prices">
 	    </div>
 	  </div>
 
@@ -58,7 +58,7 @@
 	  <div class="form-group row">
 	    <label for="inputPassword" class="col-sm-4 col-form-label col-form-label-sm">Total</label>
 	    <div class="col-sm-8">
-	      <input type="number" readonly="" class="form-control form-control-sm" placeholder="0.00">
+	      <input type="text" name="total" readonly="" class="form-control form-control-sm" placeholder="0.00">
 	    </div>
 	  </div>
 
@@ -101,5 +101,18 @@
 		    getDataJson();
 		    return false;
 		});
+
+		$("form#formBuyLimit #formControlRange").on("input", function(){
+
+		});
+
+		$("form#formBuyLimit input[name=amount], form#formBuyLimit input[name=prices]").on("input", function(){
+			call_total($("form#formBuyLimit input[name=amount]").val(),$("form#formBuyLimit input[name=prices]").val(), $("form#formBuyLimit input[name=total]"), "buy");
+		});
+
+		function call_total(amount, prices, target, type){
+			var call = amount * prices;
+			target.val(call);
+		}
 	});
 </script>

@@ -10,12 +10,13 @@ class Api extends HomeController {
 	}
 
 	public function mywallet(){
-		$this->json = $this->apis->post("account/mywallet"]);
+		$this->json = $this->apis->post("account/mywallet");
 		$this->toJson();
 	}
 
 	public function trade($s,$b){
 		$this->json = $this->apis->get("market/trade",["trade" => "{$b}/{$s}"]);
+		
 		$this->toJson();
 	}
 

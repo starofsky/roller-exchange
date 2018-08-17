@@ -42,7 +42,7 @@
 			
 		<tr>
 			
-			<th><?php echo $value->base;?></th>
+			<th><a href="<?php echo store_url("exchange/".$value->base."/".$value->symbol);?>"><?php echo $value->base;?></th>
 			<td><?php echo $value->name;?></td>
 			<td><?php echo $value->symbol;?></td>
 			<td>Last Prices</td>
