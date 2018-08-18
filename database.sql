@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 13, 2018 at 07:35 AM
--- Server version: 5.6.38
--- PHP Version: 7.2.1
+-- Host: localhost:3306
+-- Generation Time: Aug 18, 2018 at 09:28 AM
+-- Server version: 5.6.35
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -64,11 +64,23 @@ INSERT INTO `settings` (`id`, `keys_settings`, `values_settings`, `globals`, `la
 
 CREATE TABLE `symbol` (
   `id` int(10) NOT NULL,
+  `icon` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `symbol` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `base` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `symbol`
+--
+
+INSERT INTO `symbol` (`id`, `icon`, `name`, `symbol`, `base`, `status`) VALUES
+(1, '', 'Ethereum', 'ETH', 'BTC', 0),
+(2, '/uploads/coind.png', 'Roller', 'ROL', 'BTC', 1),
+(3, '/uploads/coind.png', 'Roller', 'ROL', 'USDT', 0),
+(4, '/uploads/coind.png', 'Roller', 'ROL', 'ETH', 0),
+(5, '/uploads/coind.png', 'Ethereum Classic', 'ETC', 'BTC', 1);
 
 --
 -- Indexes for dumped tables
@@ -103,15 +115,13 @@ ALTER TABLE `symbol`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `symbol`
 --
 ALTER TABLE `symbol`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
