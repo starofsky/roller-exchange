@@ -1,10 +1,10 @@
 <ul class="list-group">
-  <li class="list-group-item active">Profile</li>
-  <li class="list-group-item"><i class="ti-wallet"></i> Wallet</li>
-  <li class="list-group-item">F2A Authentication</li>
-  <li class="list-group-item">Referrals</li>
-  <li class="list-group-item">Change Password</li>
-  <li class="list-group-item">Login History</li>
-  <li class="list-group-item">Api Authour</li>
-  <li class="list-group-item">Notifications</li>
+  <li class="list-group-item active"><a href="<?php echo store_url("account/profile");?>">Profile</a></li>
+  <li class="list-group-item"><a href="<?php echo store_url("account/wallet");?>"><i class="ti-wallet"></i> Wallet</a></li>
+  <li class="list-group-item"><a href="<?php echo store_url("account/authentication");?>">F2A Authentication</a></li>
+  <li class="list-group-item"><a href="<?php echo store_url("account/referrals");?>">Referrals</a></li>
+  <li class="list-group-item"><a href="<?php echo store_url("account/password");?>">Change Password</a></li>
+  <li class="list-group-item"><a href="<?php echo store_url("account/history");?>">Login History</a></li>
+  <li class="list-group-item"><a href="<?php echo store_url("account/api");?>">Api Authour</a></li>
+  <li class="list-group-item"><a href="<?php echo store_url("account/notifications");?>">Notifications</a></li>
 </ul>
