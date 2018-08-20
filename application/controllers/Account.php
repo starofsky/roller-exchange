@@ -116,5 +116,20 @@ class Account extends AccountController {
 		return $this->view("account/myaccount",["data" => $data]);
 	}
 	
+	/*
+	Make Wallet
+	*/
+
+	public function gender_wallet($symbol){
+		return $this->apis->post("account/gender_wallet",["symbol" => $symbol]);
+	}
+
+	/*
+	Get My Task
+	*/
+
+	public function mytask(){
+		return $this->apis->post("account/mytask");
+	}
 
 }

@@ -37,7 +37,8 @@ class Api extends HomeController {
 	}
 
 	public function chart(){
-		print_r(file_get_contents("https://api.bitfinex.com/v2/candles/trade:5m:tBTCUSD/hist?limit=500"));
+		$this->json = $this->apis->get("market/ohlc",["period" => "30m","base" => $this->session->userdata("base"),"symbol" => $this->session->userdata("symbol")]);
+		$this->toJson();
 	}
 }
 ?>
