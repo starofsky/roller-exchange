@@ -48,11 +48,13 @@ class BaseController extends CI_Controller{
 	*/
 	public function view($layout, $data=[]){
 		
+		$is_login = $this->is_login();
+		$data = array_merge($data,["is_login" => $is_login]);
 		
 		if($this->getLayout()){
 
 			$data = $this->load->view($layout, $data, true);
-			return $this->load->view($this->layout,["content" => $data, "flash" => $this->get_flash(), "header" => "","is_login" => $this->is_login()]);
+			return $this->load->view($this->layout,["content" => $data, "flash" => $this->get_flash(), "header" => "","is_login" => $is_login]);
 		}else{
 			return $this->load->view($layout, $data);
 		}

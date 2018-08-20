@@ -28,8 +28,13 @@
 	      <input type="text" readonly="" name="total" class="form-control form-control-sm" placeholder="0.00">
 	    </div>
 	  </div>
+	  <?php if($is_login){ ?>
+	  		 <button class="btn btn-block btn-outline-info btnBuy" type="submit">Buy</button>
+	  <?php }else{ ?>
 
-	  <button class="btn btn-block btn-outline-info btnBuy" type="submit">Buy</button>
+			<a class="btn btn-block btn-outline-info btnSell" href="<?php echo store_url("access/login");?>"><b>Login</b> & Buy <?php echo $pair;?></a>
+		<?php } ?>
+	 
 	</form>
 	</div>
 	<div class="col" style="padding-left:15px; ">
@@ -61,8 +66,11 @@
 	      <input type="text" name="total" readonly="" class="form-control form-control-sm" placeholder="0.00">
 	    </div>
 	  </div>
-
-	  <button class="btn btn-block btn-outline-primary btnSell" type="submit">Sell</button>
+	  	<?php if($is_login){ ?>
+	  		<button class="btn btn-block btn-outline-primary btnSell" type="submit">Sell</button>
+		<?php }else{ ?>
+			<a class="btn btn-block btn-outline-info btnSell"  href="<?php echo store_url("access/login");?>"><b>Login</b> & Sell <?php echo $pair;?></a>
+		<?php } ?>
 	</form>
 	</div>
 </div>

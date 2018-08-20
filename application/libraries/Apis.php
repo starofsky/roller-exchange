@@ -136,9 +136,7 @@ class Apis
      */
     public function put($uri, $params = array(), $format = NULL)
     {
-        if($this->_ci->session->userdata("is_login")){
-            $params = array_merge($params,["users_id" => $this->_ci->session->userdata("is_login"), "session_id" => $this->_ci->session->userdata("session_id")]);
-        }
+       
         return $this->_call('put', $uri, $params, $format);
     }
 
@@ -151,9 +149,7 @@ class Apis
      */
     public function patch($uri, $params = array(), $format = NULL)
     {
-        if($this->_ci->session->userdata("is_login")){
-            $params = array_merge($params,["users_id" => $this->_ci->session->userdata("is_login"), "session_id" => $this->_ci->session->userdata("session_id")]);
-        }
+       
         return $this->_call('patch', $uri, $params, $format);
     }
 
