@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node post_install.js",
-    "chart": "cd ./charts/sample/CandleStickChartWithBollingerBandOverlay && yarn && yarn build && rm -rf ../../../resource/charts/static && cp -R ./build/* ../../../resource/charts/ && mv ../../../resource/charts/static/js/*.js ../../../resource/charts/static/js/charts.js"
+    "chart": "cd ./charts/sample/CandleStickChartWithUpdatingData && yarn && yarn build && rm -rf ../../../resource/charts/static && cp -R ./build/* ../../../resource/charts/ && mv ../../../resource/charts/static/js/*.js ../../../resource/charts/static/js/charts.js"
   },
   "repository": "https://github.com/roller-project/roller-exchange.git",
   "author": "Roller Davic <rollerdavic@gmail.com>",

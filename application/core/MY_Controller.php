@@ -8,7 +8,7 @@ class BaseController extends CI_Controller{
 	{
 		parent::__construct();
 		$this->load->library(['session','email','user_agent','apis','curl']);
-		$this->load->helper(['functions','url','form']);
+		$this->load->helper(['functions','url','form','language']);
 		$this->api_setup();
 	}
 	
@@ -29,11 +29,19 @@ class BaseController extends CI_Controller{
 	*/
 
 	public function is_login(){
+
 		if($this->session->userdata("is_login")){
 			return true;
 		}else{
 			return false;
 		}
+	}
+
+	public function checkAccess(){
+		if(!$this->is_login()){
+			$this->go(false,"access/login");
+		}
+		return true;
 	}
 	/*
 	Return View
@@ -53,7 +61,9 @@ class BaseController extends CI_Controller{
 	/*
 	Note Flash Member
 	*/
-
+	public function flash($key, $content=""){
+		$this->session->set_flashdata($key, $content);
+	}
 	public function get_flash(){
 		$html = "";
 		if($this->session->flashdata("error")){
@@ -100,7 +110,7 @@ class BaseController extends CI_Controller{
 
 	public function api_setup(){
 		
-		$config['server'] = "https://api.btcrip.co/api/";
+		$config['server'] = "http://127.0.0.1:3333/api/";
 		$config['send_cookies'] = "";
 		$config['api_name'] = "";
 		$config['api_key'] = "";
@@ -133,8 +143,21 @@ class AccountController extends BaseController{
 	function __construct()
 	{
 		parent::__construct();
+		
+		$login = $this->apis->post("account/checklogin");
+		if(!isset($login->status) || $login->status != "login"){
+			redirect(store_url("access/logout"));
+			exit();
+		}
+		
 	}
 }
 
+class AccessController extends BaseController{
+	function __construct()
+	{
+		parent::__construct();
+	}
+}
 class ApiController extends CI_Controller{
 }

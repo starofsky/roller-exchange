@@ -80,14 +80,16 @@ class Apis
             $this->rest_server .= '/';
         }
         
-        isset($config['send_cookies']) && $this->send_cookies = $config['send_cookies'];
+        isset($config['send_cookies']) && $this->send_cookies = session_id();
         
         isset($config['api_name']) && $this->api_name = $config['api_name'];
         isset($config['api_key']) && $this->api_key = $config['api_key'];
         
-        isset($config['http_auth']) && $this->http_auth = $config['http_auth'];
-        isset($config['http_user']) && $this->http_user = $config['http_user'];
-        isset($config['http_pass']) && $this->http_pass = $config['http_pass'];
+        $this->http_auth = 'basic';
+        //isset($config['http_user']) && $this->http_user = $config['http_user'];
+        //isset($config['http_pass']) && $this->http_pass = $config['http_pass'];
+        $this->http_user =  $this->_ci->session->userdata("is_login");
+        $this->http_pass = $this->_ci->session->userdata("session_id");
 
         isset($config['ssl_verify_peer']) && $this->ssl_verify_peer = $config['ssl_verify_peer'];
         isset($config['ssl_cainfo']) && $this->ssl_cainfo = $config['ssl_cainfo'];
@@ -120,6 +122,8 @@ class Apis
      */
     public function post($uri, $params = array(), $format = NULL)
     {
+       
+        //$this->api_key("Mot Con bo");
         return $this->_call('post', $uri, $params, $format);
     }
 
@@ -132,6 +136,9 @@ class Apis
      */
     public function put($uri, $params = array(), $format = NULL)
     {
+        if($this->_ci->session->userdata("is_login")){
+            $params = array_merge($params,["users_id" => $this->_ci->session->userdata("is_login"), "session_id" => $this->_ci->session->userdata("session_id")]);
+        }
         return $this->_call('put', $uri, $params, $format);
     }
 
@@ -144,6 +151,9 @@ class Apis
      */
     public function patch($uri, $params = array(), $format = NULL)
     {
+        if($this->_ci->session->userdata("is_login")){
+            $params = array_merge($params,["users_id" => $this->_ci->session->userdata("is_login"), "session_id" => $this->_ci->session->userdata("session_id")]);
+        }
         return $this->_call('patch', $uri, $params, $format);
     }
 

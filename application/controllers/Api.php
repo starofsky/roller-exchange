@@ -35,5 +35,9 @@ class Api extends HomeController {
 		$this->json = $this->apis->post("public/chat",["text" => $text]);
 		$this->toJson();
 	}
+
+	public function chart(){
+		print_r(file_get_contents("https://api.bitfinex.com/v2/candles/trade:5m:tBTCUSD/hist?limit=500"));
+	}
 }
 ?>

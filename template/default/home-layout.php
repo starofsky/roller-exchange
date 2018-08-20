@@ -93,6 +93,7 @@
 	          <a class="dropdown-item" href="<?php echo store_url("account/changepassword");?>">Change Password</a>
 	          <div class="dropdown-divider"></div>
 	          <a class="dropdown-item" href="<?php echo store_url("account/security");?>">Security</a>
+	          <a class="dropdown-item" href="<?php echo store_url("access/logout");?>">Logout</a>
 	        </div>
 	      </li>
 	      <?php }else{?>
