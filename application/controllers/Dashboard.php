@@ -30,7 +30,7 @@ class Dashboard extends HomeController {
 		$data = [];
 		$this->db->group_by("base");
 		$symbol = $this->db->get("symbol")->result();
-		$this->session->set_userdata(["base" => $base, "symbol" => $symbol]);
+		$this->session->set_userdata(["base" => $base, "symbol" => $pair]);
 		foreach ($symbol as $key => $value) {
 			$data[$value->base] = $this->db->get_where("symbol",["base" => $value->base])->result();
 		}
