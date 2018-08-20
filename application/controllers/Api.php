@@ -37,7 +37,7 @@ class Api extends HomeController {
 	}
 
 	public function chart(){
-		$this->json = $this->apis->get("market/ohlc",["period" => "15m","base" => $this->session->userdata("base"),"symbol" => $this->session->userdata("symbol")]);
+		$this->json = $this->apis->get("market/ohlc",["period" => "1m","base" => $this->session->userdata("base"),"symbol" => $this->session->userdata("symbol")]);
 		$this->toJson();
 	}
 }
