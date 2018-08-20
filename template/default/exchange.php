@@ -1,6 +1,4 @@
-<script type="text/javascript">
-	var urls = "conbo";
-</script>
+
 <div class="row">
 	<div class="col">
 		<?php echo $pair;?> / <?php echo $base;?><br>

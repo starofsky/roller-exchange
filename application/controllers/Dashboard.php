@@ -30,7 +30,7 @@ class Dashboard extends HomeController {
 		$data = [];
 		$this->db->group_by("base");
 		$symbol = $this->db->get("symbol")->result();
-		
+		$this->session->set_userdata(["base" => $base, "symbol" => $symbol]);
 		foreach ($symbol as $key => $value) {
 			$data[$value->base] = $this->db->get_where("symbol",["base" => $value->base])->result();
 		}
@@ -40,7 +40,10 @@ class Dashboard extends HomeController {
 
 
 	public function exchange_main(){
-		$data = $this->db->get("symbol")->result();
-		$this->view("exchange_main",["data" => $data]);
+		$base = $this->session->userdata("base");
+		$symbol = $this->session->userdata("symbol");
+		if(!$base) $base = "BTC";
+		if(!$symbol) $symbol = "ROL";
+		redirect(store_url("exchange/".$base."/".$symbol));
 	}
 }
