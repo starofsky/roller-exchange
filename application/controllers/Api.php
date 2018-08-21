@@ -37,8 +37,26 @@ class Api extends HomeController {
 	}
 
 	public function chart(){
-		$this->json = $this->apis->get("market/ohlc",["period" => "30m","base" => $this->session->userdata("base"),"symbol" => $this->session->userdata("symbol")]);
-		$this->toJson();
+		$arv = [];
+		$data = $this->apis->get("market/ohlc",["period" => "5m","base" => $this->session->userdata("base"),"symbol" => $this->session->userdata("symbol"),"limit" => 100]);
+		$open = 0;
+		foreach ($data as $key => $value) {
+			$value->openTime = $value->created * 1000;
+			
+			$arv[] = $value;
+
+		}
+		if(count($arv) < 100){
+			for ($i=0; $i < 100; $i++) { 
+				if($i > count($arv)){
+					$arv[$i] = new stdClass();
+					$arv[$i]->openTime = null;
+				}
+			}
+		}
+		rsort($arv);
+		header("Content-type: application/json; charset=utf-8");
+		print_r(json_encode($arv));
 	}
 }
 ?>
