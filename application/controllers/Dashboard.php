@@ -46,4 +46,8 @@ class Dashboard extends HomeController {
 		if(!$symbol) $symbol = "ROL";
 		redirect(store_url("exchange/".$base."/".$symbol));
 	}
+
+	public function displatchart(){
+		$this->load->view("chart");
+	}
 }

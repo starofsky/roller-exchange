@@ -36,8 +36,8 @@
 <br>
 <div class="row d-flex flex-row">
 	<div class="col-lg-9 col-sm-3">
-
-		<div class="chart border" id="main_chart">Loadding chart..</div>
+		<iframe src="/dashboard/displatchart" style="width: 100%; height: 550px; overflow: hidden;border:0px;" class="border" scrolling="no"></iframe>
+		
 	</div>
 	<div class="col-lg-3 col-sm-3">
 		<div id="coinValible" class="border">
@@ -216,10 +216,7 @@
 			</tr>
 		</tbody>
 	</table>
-<script type="text/javascript" src="<?php echo resource_url("charts/static/js/charts.js");?>"></script>
-<style type="text/css">
-	#main_chart div label:first-child, #main_chart div select#type{ display:none; }
-</style>
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		var history = $("#history").height();
