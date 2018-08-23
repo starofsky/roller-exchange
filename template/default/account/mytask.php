@@ -31,7 +31,7 @@
 				
 				<td><?php echo number_format(($value->amount * $value->prices),8);?></td>
 				<td></td>
-				<td class="text-right"><button class="btn btn-sm btn-outline-info">Close</button></td>
+				<td class="text-right"><a href="/account/removetask/<?php echo $value->trade_id;?>" class="btn btn-sm btn-outline-info">Close</a></td>
 			</tr>
 			<?php } ?>
 		</tbody>

@@ -67,6 +67,15 @@ class Account extends AccountController {
 			redirect(store_url("account/wallet"));
 		}
 	}
+
+	/*
+	Remove Task
+	*/
+
+	public function removetask($id){
+		$this->apis->post("account/cancel",["id" => $id]);
+		redirect(store_url("exchange"));
+	}
 	/*
 	F2A authentication
 	*/

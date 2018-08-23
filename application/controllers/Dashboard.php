@@ -61,7 +61,9 @@ class Dashboard extends HomeController {
 	public function mytask(){
 		if(!$this->is_login()) return false;
 		$data = $this->apis->post("account/mytask");
-		//print_r($data); exit();
+		if(isset($data->error)){
+			$data = [];
+		}
 		return $this->load->view("account/mytask",["data" => $data]);
 	}
 
