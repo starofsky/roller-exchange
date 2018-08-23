@@ -155,6 +155,7 @@
 	</div>
 </div>
 <br>
+<div id="mytask">
 <h5>Open Order</h5>
 <div class="run-task">
 	<table class="table">
@@ -216,7 +217,7 @@
 			</tr>
 		</tbody>
 	</table>
-
+</div>
 <script type="text/javascript">
 	$(document).ready(function(){
 		var history = $("#history").height();
@@ -228,62 +229,37 @@
 		
 		$(".sell-task").animate({scrollTop: $(".sell-task").get(0).scrollHeight}, 500);
 		getDataJson();
-		var socket = io.connect('//api.btcrip.co:8080');
-
-		socket.on('connect', function () {
-		    console.log('connected');
-
-		    socket.on('broadcast', function (data) {
-		        console.log(data);
-		        //socket.emit("broadcast", data);
-		        //alert(data.text);
-		        if(data.type == "notification"){
-		        	getDataJson();
-		        }
-		        if(data.type == "chat"){
-		        	$("#chatbox ul").append('<li>'+data.text+'</li>');
-		        	$("#chatbox").animate({scrollTop: $("#chatbox").get(0).scrollHeight}, 100);
-		        }
-		        
-		    });
-
-		    socket.on('disconnect', function () {
-		        console.log('disconnected');
-		    });
-		});
-
-		$("form#chatForm").submit(function(){
-			var inbox = $(this).find("input[type=text]");
-			$.ajax({
-		        url: "/api/chat",
-		        type: "post",
-		        data: {text : inbox.val()}
-		    });
-		    inbox.val('');
-		    inbox.focus();
-		    return false;
-		});
+		
 		
 		
 	});
 	
 	var getDataJson = function(){
+
 			$.getJSON("/api/trade/<?php echo $base;?>/<?php echo $pair;?>", function(data){
 				$.each(data, function(keys, value){
 					sum = 0;
 					$.each(value, function(index, vdata){
-						if(keys == "sell"){
+						if(keys == "sell"  && vdata){
+
 							sum = Number.parseFloat(vdata.amount * vdata.prices) + Number.parseFloat(sum);
 							$("."+keys+"-task #sdata-"+(20-index)+" td:eq(0)").text(vdata.prices);
 							$("."+keys+"-task #sdata-"+(20-index)+" td:eq(1)").text(vdata.amount);
 							$("."+keys+"-task #sdata-"+(20-index)+" td:eq(2)").text(sum.toFixed(8));
-						}else{
+
+						}else if(keys == "buy" && vdata){
 							sum = Number.parseFloat(vdata.amount * vdata.prices) + Number.parseFloat(sum);
 							$("."+keys+"-task #sdata-"+index+" td:eq(0)").text(vdata.prices);
 							$("."+keys+"-task #sdata-"+index+" td:eq(1)").text(vdata.amount);
 							$("."+keys+"-task #sdata-"+index+" td:eq(2)").text(sum.toFixed(8));
 						}
-						if(keys == "history"){
+						if(keys == "history"  && vdata){
+
+							sum = Number.parseFloat(vdata.amount * vdata.prices) + Number.parseFloat(sum);
+							$("."+keys+"-task #sdata-"+index+" td:eq(0)").text(vdata.prices);
+							$("."+keys+"-task #sdata-"+index+" td:eq(1)").text(vdata.amount);
+							$("."+keys+"-task #sdata-"+index+" td:eq(2)").text(sum.toFixed(8));
+							
 							if(vdata.trade_type == "buy"){
 								$(".history-task #sdata-"+index).removeClass("red");
 								$(".history-task #sdata-"+index).addClass("green");
@@ -291,10 +267,12 @@
 								$(".history-task #sdata-"+index).removeClass("green");
 								$(".history-task #sdata-"+index).addClass("red");
 							}
+
 						}
 						
 					});
 				});
+
 				$("#lastprices").html(data.sumary.lastprice);
 				$("#change24").html(data.sumary.change);
 				$("#high24").html(data.sumary.high);

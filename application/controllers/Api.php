@@ -14,19 +14,19 @@ class Api extends HomeController {
 		$this->toJson();
 	}
 
-	public function trade($s,$b){
+	public function trade($b,$s){
 		$this->json = $this->apis->get("market/trade",["trade" => "{$b}/{$s}"]);
 		
 		$this->toJson();
 	}
 
-	public function buy($s,$b){
-		$this->json = $this->apis->post("account/buy",["trade" => "{$b}/{$s}","amount" => $this->input->post("amount"),"prices" => $this->input->post("prices")]);
+	public function buy($b,$s){
+		$this->json = $this->apis->post("account/buy",["base" =>$b, "symbol" => $s,"amount" => $this->input->post("amount"),"prices" => $this->input->post("prices")]);
 		$this->toJson();
 	}
 
-	public function sell($s,$b){
-		$this->json = $this->apis->post("account/sell",["trade" => "{$b}/{$s}","amount" => $this->input->post("amount"),"prices" => $this->input->post("prices")]);
+	public function sell($b,$s){
+		$this->json = $this->apis->post("account/sell",["base" =>$b, "symbol" => $s,"amount" => $this->input->post("amount"),"prices" => $this->input->post("prices")]);
 		$this->toJson();
 	}
 
@@ -38,7 +38,7 @@ class Api extends HomeController {
 
 	public function chart(){
 		$arv = [];
-		$data = $this->apis->get("market/ohlc",["period" => "5m","base" => $this->session->userdata("base"),"symbol" => $this->session->userdata("symbol"),"limit" => 100]);
+		$data = $this->apis->get("market/ohlc",["period" => "1m","base" => $this->session->userdata("base"),"symbol" => $this->session->userdata("symbol"),"limit" => 100]);
 		$open = 0;
 		foreach ($data as $key => $value) {
 			$value->openTime = $value->created * 1000;

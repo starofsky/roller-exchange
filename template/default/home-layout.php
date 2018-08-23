@@ -35,6 +35,7 @@
   <script type="text/javascript" language="javascript" charset="utf-8" src="<?php echo template_url("apps.js");?>"></script>
   <link rel="stylesheet" type="text/css" media="all" href="<?php echo resource_url("themify/themify-icons.css");?>">
   <script type="text/javascript" language="javascript" charset="utf-8" src="<?php echo resource_url("flipclock.min.js");?>"></script>
+  <script type="text/javascript" language="javascript" charset="utf-8" src="<?php echo resource_url("bootstrap-notify.js");?>"></script>
   <link rel="stylesheet" type="text/css" media="all" href="<?php echo resource_url("flipclock.css");?>">
   <script src='//cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.min.js'></script>
 </head>
@@ -68,7 +69,7 @@
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	          <a class="dropdown-item" href="<?php echo store_url("vote");?>">Vote</a>
-	          <a class="dropdown-item" href="<?php echo store_url("coinbase");?>">Con Info</a>
+	          <a class="dropdown-item" href="<?php echo store_url("coinbase");?>">Coind Info</a>
 	          <div class="dropdown-divider"></div>
 	          <a class="dropdown-item" href="<?php echo store_url("vote/create");?>">Add Your Coin</a>
 	        </div>
@@ -79,10 +80,11 @@
 	    </ul>
 	    
 	    <ul class="navbar-nav">
+	      <li class="nav-item" id="connect"><a></a></li>
 	      <?php if($is_login){?>
 	      <li class="nav-item nav-balancer">
-	      	Balancer : 0.5 BTC<br>
-	      	Balancer : 0.5 ETH
+	      	Balancer : <span id="balancerbtc">0.0</span> BTC<br>
+	      	Balancer : <span id="balancerbtc">0.0</span> <span id="HeaderPair"></span>
 	      </li>
 	      <li class="nav-item dropdown">
 	        <a class="btn btn-outline-info btn-sm nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -109,7 +111,48 @@
 		<?php print_r($content);?>
 	</main>
 	<footer>
-		<div class="container-fluid"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h5>Information</h5>
+					<ul>
+						<li><a>API</a></li>
+						<li><a>Document</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<h5>Support</h5>
+					<ul>
+						<li><a>Coin Listing</a></li>
+						<li><a>Document</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<h5>Development</h5>
+					<ul>
+						<li><a>API</a></li>
+						<li><a>Document</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<h5>Social</h5>
+					<ul class="w-50 float-left">
+						<li><a>Facebook</a></li>
+						<li><a>Discord</a></li>
+					</ul>
+					<ul class="w-50 float-right">
+						<li><a>Telegram</a></li>
+						<li><a>Discord</a></li>
+					</ul>
+				</div>
+				
+			</div>
+			<div class="text-center" style="margin-top:30px; ">
+				Usage of btcrip.co indicates acceptance of the A VIETMEDIA Ltd. Terms & Conditions.<br>
+				btcrip.co. is not responsible for losses caused by outages, network volatility, wallet forks/maintenance or market conditions.<br>
+				Copyright 2018 A VIETMEDIA Ltd. - All Rights Reserved
+			</div>
+		</div>
 	</footer>
 </body>
 </html>

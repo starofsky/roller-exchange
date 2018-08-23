@@ -41,8 +41,6 @@
 	<main ruller="main" class="container-fluid">
 		<?php print_r($content);?>
 	</main>
-	<footer>
-		<div class="container-fluid"></div>
-	</footer>
+	
 </body>
 </html>

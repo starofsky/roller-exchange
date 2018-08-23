@@ -30,7 +30,7 @@
 					<td><b>[<?php echo $value->symbol;?>]</b> <?php echo $value->name;?></td>
 					
 					<td><?php
-					echo (isset($value->wallet) && $value->wallet ? $value->wallet : '<a class="btn btn-sm btn-outline-info" href="#"><i class="ti-hand-point-right"></i> Render<a>');
+					echo (isset($value->wallet) && $value->wallet ? $value->wallet : '<a class="btn btn-sm btn-outline-info" href="'.store_url("account/renderwallet/".$value->symbol).'"><i class="ti-hand-point-right"></i> Render<a>');
 					if($value->status == 1){ 
 						echo '<br> Server : Online';
 					}else{

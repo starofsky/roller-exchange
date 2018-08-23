@@ -47,7 +47,22 @@ class Dashboard extends HomeController {
 		redirect(store_url("exchange/".$base."/".$symbol));
 	}
 
+	/*
+	Load reset Chart
+	*/
 	public function displatchart(){
 		$this->load->view("chart");
 	}
+
+	/*
+	Get My Task
+	*/
+
+	public function mytask(){
+		if(!$this->is_login()) return false;
+		$data = $this->apis->post("account/mytask");
+		//print_r($data); exit();
+		return $this->load->view("account/mytask",["data" => $data]);
+	}
+
 }

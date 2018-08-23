@@ -52,9 +52,21 @@ class Account extends AccountController {
 			
 		}
 
-		return $this->view("account/myaccount",["data" => $arv]);
+		return $this->view("account/wallet",["data" => $arv]);
 	}
 
+
+	public function renderwallet($symbol){
+		$data = $this->apis->post("account/gender_wallet",["symbol" => $symbol]);
+		
+		if($data){
+			$this->flash("success", lang("success_wallet_gender"));
+			redirect(store_url("account/wallet"));
+		}else{
+			$this->flash("error", lang("error_wallet_gender"));
+			redirect(store_url("account/wallet"));
+		}
+	}
 	/*
 	F2A authentication
 	*/
@@ -90,7 +102,7 @@ class Account extends AccountController {
 		$data = $this->db->get("symbol")->result();
 		
 		$apis = $this->apis->post("account/wallet");
-		return $this->view("account/myaccount",["data" => $data]);
+		return $this->view("account/wallet",["data" => $data]);
 	}
 
 
@@ -124,12 +136,6 @@ class Account extends AccountController {
 		return $this->apis->post("account/gender_wallet",["symbol" => $symbol]);
 	}
 
-	/*
-	Get My Task
-	*/
 
-	public function mytask(){
-		return $this->apis->post("account/mytask");
-	}
 
 }
