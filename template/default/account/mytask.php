@@ -13,7 +13,7 @@
 			<td class="col">Total</td>
 			<td class="col-1">Filled%</td>
 			
-			<th class="text-right"><a href="#" class="btn btn-outline-info btn-sm">Cancel All</a></th>
+			<th class="text-right"><a href="/account/removetask/all" class="btn btn-outline-info btn-sm">Cancel All</a></th>
 		</tbody>
 	
 		<tbody>

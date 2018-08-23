@@ -76,6 +76,9 @@ class Account extends AccountController {
 		$this->apis->post("account/cancel",["id" => $id]);
 		redirect(store_url("exchange"));
 	}
+
+	
+
 	/*
 	F2A authentication
 	*/
