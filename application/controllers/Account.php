@@ -149,5 +149,12 @@ class Account extends AccountController {
 	}
 
 
+	/*
+	Coind Master
+	*/
+
+	public function coindmaster(){
+		return $this->view("account/coindmaster");
+	}
 
 }

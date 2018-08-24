@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 20, 2018 at 04:21 AM
+-- Generation Time: Aug 24, 2018 at 01:52 PM
 -- Server version: 5.6.35
 -- PHP Version: 7.1.8
 
@@ -13,6 +13,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `exchange`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account`
+--
+
+CREATE TABLE `account` (
+  `id` int(10) NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `aglo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `validate_f2a_code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `validate_email` int(1) NOT NULL,
+  `hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`id`, `email`, `password`, `token`, `status`, `created_at`, `updated_at`, `aglo`, `validate_f2a_code`, `validate_email`, `hash`) VALUES
+(1, 'thietkewebvip@gmail.com', 'a131b831377a7ecb892750b1c2d118aaeca47647', 'tokenID', 1, '2018-07-07 15:58:55', '0000-00-00 00:00:00', 'sha256', '', 0, '$2y$10$o/KuLZwe1pmQj9QowWCLAu/pq9OJ7Ti82P4vrh5OuH7CN1g6VAlCm');
 
 -- --------------------------------------------------------
 
@@ -87,6 +114,13 @@ INSERT INTO `symbol` (`id`, `icon`, `name`, `symbol`, `base`, `status`) VALUES
 --
 
 --
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
@@ -110,6 +144,11 @@ ALTER TABLE `symbol`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `account`
+--
+ALTER TABLE `account`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `admin`
 --

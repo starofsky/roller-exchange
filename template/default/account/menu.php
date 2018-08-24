@@ -7,4 +7,5 @@
   <li class="list-group-item"><a href="<?php echo store_url("account/history");?>">Login History</a></li>
   <li class="list-group-item"><a href="<?php echo store_url("account/api");?>">Api Authour</a></li>
   <li class="list-group-item"><a href="<?php echo store_url("account/notifications");?>">Notifications</a></li>
+  <li class="list-group-item"><a href="<?php echo store_url("account/coindmaster");?>">Coind Master</a></li>
 </ul>
