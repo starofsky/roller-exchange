@@ -37,8 +37,18 @@ class BaseController extends CI_Controller{
 		}
 	}
 
+	public function is_verify2fa()
+    {
+	    if (!$this->session->userdata("is_2fa") ||
+            ($this->session->userdata("is_2fa") && $this->session->userdata("is_verify2fa")))
+        {
+            return true;
+        }
+        return false;
+    }
+
 	public function checkAccess(){
-		if(!$this->is_login()){
+		if(!$this->is_login() || !$this->is_verify2fa()){
 			$this->go(false,"access/login");
 		}
 		return true;

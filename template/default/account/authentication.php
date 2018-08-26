@@ -4,27 +4,64 @@
     <?php include __DIR__."/menu.php"; ?>
   </div>
   <div class="col-lg-10">
-    <div class="card card-body">
-        <form>
-         <div class="form-group">
-          <label for="formGroupExampleInput">Example label</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+      <div class="card">
+          <div class="card-body">
+              <h4 class="card-title">Google Authenticator
+                  <?php
+
+                  if ($actived_2fa)
+                  {
+                      ?>
+                      <span class="badge badge-success">Enabled</span>
+                      <?php
+                  }
+                  else
+                  {
+                      ?>
+                      <span class="badge badge-danger">Not Enabled</span>
+                  <?php } ?>
+              </h4>
+          </div>
+          <div class="card-text">
+              <form method="post" style="padding-left: 20px" action="<?php echo store_url("account/authentication");?>">
+                  <?php
+                  if (!$actived_2fa)
+                  {
+                      ?>
+                      <div class="form-group row">
+                          <label class="col-4 col-form-label">QR Code</label>
+                          <div class="col-8">
+                              <img src="<?php echo $qrCodeUrl; ?>" />
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-4 col-form-label">Secret Code</label>
+                          <div class="col-8">
+                              <input style="width: 50%" class="form-control" name="secret" readonly=""  type="text" value="<?php echo $secret ?>"/>
         </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput2">Another label</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
         </div>
-          
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                Check me out
-              </label>
+                  <?php } ?>
+                  <div class="form-group row">
+                      <label class="col-4 col-form-label">Verification Code</label>
+                      <div class="col-8">
+                          <input style="width: 50%" name="verification_code" class="form-control" placeholder="Verification code" type="text">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label class="col-4 col-form-label"></label>
+                      <div class="col-8">
+                          <?php
+                          if (!$actived_2fa)
+                          {
+                              ?>
+                              <button type="submit" name="security" value="1" class="btn btn-primary">Enable</button>
+                          <?php } else { ?>
+                              <button type="submit" name="security" value="2" class="btn btn-danger">Disable</button>
+                          <?php } ?>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Validate</button>
         </form>
       </div>
+      </div>`
     </div>
   </div>

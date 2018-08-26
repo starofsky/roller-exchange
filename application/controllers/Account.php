@@ -9,9 +9,6 @@ class Account extends AccountController {
 
 	}
 	public function index(){
-		
-		
-		
 		return $this->profiles();
 	}
 
@@ -77,14 +74,72 @@ class Account extends AccountController {
 		redirect(store_url("exchange"));
 	}
 
-	
-
 	/*
 	F2A authentication
 	*/
 	public function authentication(){
+        $this->load->library('GoogleAuthenticator');
+        $ga = new GoogleAuthenticator();
+        $user = $this->db->get_where("account",["id" => $this->session->userdata("is_login")])->row();
+        $email = $user->email;
+        $actived_2fa = ($user->validate_f2a_code == null || $user->validate_f2a_code == "")? false : true;
 		
-		return $this->view("account/authentication",["data" => ""]);
+        if ($this->input->post("security") == 1) {
+            $secret = $this->input->post("secret");
+            $verification_code = $this->input->post("verification_code");
+
+            if ($secret == "")
+            {
+                $this->flash("error", "Vui lòng nhập 2FA code");
+                redirect(store_url('account/authentication'));
+            }
+
+            if ($ga->verifyCode($secret, $verification_code, 2)) {
+                $ciphertext = encrypt_decrypt("encrypt",$secret);
+
+                $data = $this->db->update("account",["validate_f2a_code" => $ciphertext],["id" => $this->session->userdata("is_login")]);
+
+                if ($data) {
+                    $this->flash("success", "Kích hoạt 2FA thành công");
+                    redirect(store_url('account/authentication'));
+                } else {
+                    $this->flash("error", "Kích hoạt 2FA lỗi, vui lòng thử lại.");
+                    redirect(store_url('account/authentication'));
+                }
+            } else {
+                $this->flash("error", "Sai mã xác thực.");
+                redirect(store_url('account/authentication'));
+            }
+        } else if ($this->input->post("security") == 2) {
+            $verification_code = $this->input->post("verification_code");
+            $ciphertext = $user->validate_f2a_code;
+            $secret = encrypt_decrypt("decrypt", $ciphertext);
+
+            if ($ga->verifyCode($secret, $verification_code, 2)) {
+                $data = $this->db->update("account",["validate_f2a_code" => ""],["id" => $this->session->userdata("is_login")]);
+
+                if($data)
+                {
+                    $this->flash("success", "Tắt 2FA thành công.");
+                    redirect(store_url('account/authentication'));
+                }
+                else
+                {
+                    $this->flash("error", 'Có lỗi xảy ra, vui lòng thử lại.');
+                    redirect(store_url('account/authentication'));
+                }
+            }
+            else
+            {
+                $this->flash("error", 'Có lỗi xảy ra, vui lòng thử lại.');
+                redirect(store_url('account/authentication'));
+            }
+        }
+
+        $secret = $ga->createSecret();
+        $qrCodeUrl = $ga->getQRCodeGoogleUrl($email, $secret, 'roller-exchange');
+
+		return $this->view("account/authentication",["secret" => $secret, "qrCodeUrl" => $qrCodeUrl, "actived_2fa" => $actived_2fa]);
 	}
 
 
